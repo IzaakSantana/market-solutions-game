@@ -1,3 +1,38 @@
-[gd_scene format=3 uid="uid://doasfjrxgkcb7"]
+[gd_scene load_steps=3 format=3 uid="uid://doasfjrxgkcb7"]
+
+[ext_resource type="PackedScene" uid="uid://bp5rjybqlw2yq" path="res://scenes/objetcs/sample_box.tscn" id="1_n0ioo"]
+[ext_resource type="Texture2D" uid="uid://dstmal21y0gny" path="res://assets/sprites/sampleMmarker.png" id="2_xqprb"]
 
 [node name="main" type="Node"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_n0ioo")]
+texture_filter = 1
+position = Vector2(92, 96)
+
+[node name="Node2D2" parent="." instance=ExtResource("1_n0ioo")]
+texture_filter = 1
+position = Vector2(92, 81)
+
+[node name="Node2D3" parent="." instance=ExtResource("1_n0ioo")]
+texture_filter = 1
+position = Vector2(92, 66)
+
+[node name="SampleMmarker" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(37, 117)
+texture = ExtResource("2_xqprb")
+
+[node name="SampleMmarker2" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(81, 117)
+texture = ExtResource("2_xqprb")
+
+[node name="SampleMmarker3" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 1, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(59, 117)
+texture = ExtResource("2_xqprb")

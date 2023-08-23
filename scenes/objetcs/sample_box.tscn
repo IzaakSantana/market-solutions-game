@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp5rjybqlw2yq"]
+
+[ext_resource type="Texture2D" uid="uid://bgokv70rfvg0t" path="res://assets/sprites/sample-box.png" id="1_38w1e"]
+[ext_resource type="Script" path="res://scripts/objects/box_holder.gd" id="2_3o6ba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4m7v"]
+size = Vector2(16, 16)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("2_3o6ba")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_38w1e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_k4m7v")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]
