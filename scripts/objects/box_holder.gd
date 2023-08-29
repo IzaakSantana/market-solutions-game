@@ -1,6 +1,7 @@
 extends Node2D
 
 var mouse_in = false
+var being_held = false
 
 func _ready():
 	pass # Replace with function body.
@@ -9,9 +10,16 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed('left_click') and mouse_in:
-		dragging_cursor()
-		position = get_global_mouse_position()
+		if can_hold_box():
+			GlobalVariables.box_held = true
+			being_held = true
+		
+		if being_held:
+			dragging_cursor()
+			position = get_global_mouse_position()
 	if Input.is_action_just_released("left_click"):
+		GlobalVariables.box_held = false
+		being_held = false
 		pointing_cursor()
 
 
@@ -32,3 +40,6 @@ func pointing_cursor():
 	
 func dragging_cursor():
 	Input.set_default_cursor_shape(Input.CURSOR_DRAG)
+
+func can_hold_box():
+	return !GlobalVariables.box_held
