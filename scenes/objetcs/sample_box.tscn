@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp5rjybqlw2yq"]
+[gd_scene load_steps=4 format=3 uid="uid://dqlaha5akt0u1"]
 
-[ext_resource type="Texture2D" uid="uid://bgokv70rfvg0t" path="res://assets/sprites/sample-box.png" id="1_38w1e"]
 [ext_resource type="Script" path="res://scripts/objects/box_holder.gd" id="2_3o6ba"]
+[ext_resource type="Texture2D" uid="uid://bgokv70rfvg0t" path="res://assets/sprites/box.png" id="2_kvq4s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4m7v"]
 size = Vector2(16, 16)
 
-[node name="Node2D" type="Node2D"]
+[node name="box" type="Node2D"]
 script = ExtResource("2_3o6ba")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="box_sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_38w1e")
+texture = ExtResource("2_kvq4s")
 
 [node name="Area2D" type="Area2D" parent="."]
 

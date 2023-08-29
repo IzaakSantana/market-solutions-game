@@ -14,10 +14,15 @@ config/name="market-solutions-game"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalVariables="*res://utils/global_variables.gd"
+
 [display]
 
 window/size/viewport_width=320
 window/size/viewport_height=180
+window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [gui]
