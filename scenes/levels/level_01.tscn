@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://doasfjrxgkcb7"]
 
-[ext_resource type="PackedScene" uid="uid://dqlaha5akt0u1" path="res://scenes/objetcs/sample_box.tscn" id="1_n0ioo"]
+[ext_resource type="PackedScene" uid="uid://dqlaha5akt0u1" path="res://scenes/objetcs/Level_01/sample_box.tscn" id="1_n0ioo"]
 [ext_resource type="Texture2D" uid="uid://dstmal21y0gny" path="res://assets/sprites/marker.png" id="2_yc0gd"]
 
-[node name="main" type="Node"]
+[node name="Main" type="Node"]
 
 [node name="Node2D" parent="." instance=ExtResource("1_n0ioo")]
 texture_filter = 1
