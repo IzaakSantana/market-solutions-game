@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqlaha5akt0u1"]
+[gd_scene load_steps=6 format=3 uid="uid://dqlaha5akt0u1"]
 
 [ext_resource type="Script" path="res://scripts/objects/box_holder.gd" id="2_3o6ba"]
 [ext_resource type="Texture2D" uid="uid://bgokv70rfvg0t" path="res://assets/sprites/box.png" id="2_kvq4s"]
+[ext_resource type="Texture2D" uid="uid://docxe4j7sq2cw" path="res://assets/sprites/box_marker.png" id="3_847lx"]
+[ext_resource type="Texture2D" uid="uid://2vawfmbs6lyc" path="res://assets/sprites/alert.png" id="4_b1ru4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4m7v"]
 size = Vector2(16, 16)
@@ -9,19 +11,32 @@ size = Vector2(16, 16)
 [node name="Box" type="Node2D"]
 script = ExtResource("2_3o6ba")
 
-[node name="box_sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_kvq4s")
+
+[node name="Marker" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_847lx")
+
+[node name="Weight" type="Label" parent="."]
+offset_left = -5.0
+offset_right = 5.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "0 Kg"
+
+[node name="Alert" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-11, 3)
+scale = Vector2(0.34375, 0.34375)
+texture = ExtResource("4_b1ru4")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_k4m7v")
-
-[node name="Label" type="Label" parent="."]
-offset_right = 70.0
-offset_bottom = 22.0
-text = "Peso máx. 19Kg"
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]
