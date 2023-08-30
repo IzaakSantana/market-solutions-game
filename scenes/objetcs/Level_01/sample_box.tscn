@@ -18,5 +18,10 @@ texture = ExtResource("2_kvq4s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_k4m7v")
 
+[node name="Label" type="Label" parent="."]
+offset_right = 70.0
+offset_bottom = 22.0
+text = "Peso máx. 19Kg"
+
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

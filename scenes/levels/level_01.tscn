@@ -36,3 +36,11 @@ z_index = -1
 texture_filter = 1
 position = Vector2(59, 117)
 texture = ExtResource("2_yc0gd")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 165.0
+offset_top = 80.0
+offset_right = 205.0
+offset_bottom = 102.0
+text = "Teste"
