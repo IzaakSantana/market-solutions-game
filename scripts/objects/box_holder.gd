@@ -1,10 +1,13 @@
 extends Node2D
 
+var number_generator = RandomNumberGenerator.new()
+
+@export var weight = number_generator.randi_range(1, 4)
 var mouse_in = false
 var being_held = false
 
 func _ready():
-	pass # Replace with function body.
+	$Marker.modulate = GlobalVariables.colors.blue
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,6 +29,7 @@ func _process(delta):
 func _on_mouse_entered():
 	mouse_in = true
 	pointing_cursor()
+
 
 
 func _on_mouse_exited():
