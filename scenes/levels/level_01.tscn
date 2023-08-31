@@ -1,37 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://doasfjrxgkcb7"]
 
 [ext_resource type="PackedScene" uid="uid://dqlaha5akt0u1" path="res://scenes/objetcs/Level_01/sample_box.tscn" id="1_n0ioo"]
-[ext_resource type="Texture2D" uid="uid://dstmal21y0gny" path="res://assets/sprites/marker.png" id="2_yc0gd"]
+[ext_resource type="PackedScene" uid="uid://h2m12s5inyax" path="res://scenes/objetcs/Level_01/marker.tscn" id="2_m75eq"]
 
 [node name="Main" type="Node"]
-
-[node name="GreenMarker" type="Sprite2D" parent="."]
-modulate = Color(0.117647, 0.737255, 0.45098, 1)
-z_index = -1
-texture_filter = 1
-position = Vector2(100, 141)
-texture = ExtResource("2_yc0gd")
-
-[node name="BlueMarker" type="Sprite2D" parent="."]
-modulate = Color(0.301961, 0.607843, 0.933333, 1)
-z_index = -1
-texture_filter = 1
-position = Vector2(140, 141)
-texture = ExtResource("2_yc0gd")
-
-[node name="RedMarker" type="Sprite2D" parent="."]
-modulate = Color(0.909804, 0.231373, 0.231373, 1)
-z_index = -1
-texture_filter = 1
-position = Vector2(180, 141)
-texture = ExtResource("2_yc0gd")
-
-[node name="YellowMarker" type="Sprite2D" parent="."]
-modulate = Color(0.976471, 0.760784, 0.168627, 1)
-z_index = -1
-texture_filter = 1
-position = Vector2(220, 141)
-texture = ExtResource("2_yc0gd")
 
 [node name="Box" parent="." instance=ExtResource("1_n0ioo")]
 position = Vector2(106, 45)
@@ -43,4 +15,20 @@ position = Vector2(106, 63)
 position = Vector2(106, 81)
 
 [node name="Box4" parent="." instance=ExtResource("1_n0ioo")]
-position = Vector2(106, 98)
+position = Vector2(100, 141)
+
+[node name="GreenMarker" parent="." instance=ExtResource("2_m75eq")]
+modulate = Color(0.117647, 0.737255, 0.45098, 1)
+position = Vector2(100, 141)
+
+[node name="BlueMarker" parent="." instance=ExtResource("2_m75eq")]
+modulate = Color(0.301961, 0.607843, 0.933333, 1)
+position = Vector2(140, 141)
+
+[node name="RedMarker" parent="." instance=ExtResource("2_m75eq")]
+modulate = Color(0.909804, 0.231373, 0.231373, 1)
+position = Vector2(180, 141)
+
+[node name="YellowMarker" parent="." instance=ExtResource("2_m75eq")]
+modulate = Color(0.976471, 0.760784, 0.168627, 1)
+position = Vector2(220, 141)
