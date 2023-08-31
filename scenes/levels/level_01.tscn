@@ -5,31 +5,32 @@
 
 [node name="Main" type="Node"]
 
-[node name="SampleMmarker" type="Sprite2D" parent="."]
+[node name="GreenMarker" type="Sprite2D" parent="."]
+modulate = Color(0.117647, 0.737255, 0.45098, 1)
 z_index = -1
 texture_filter = 1
-position = Vector2(107, 131)
+position = Vector2(100, 141)
 texture = ExtResource("2_yc0gd")
 
-[node name="SampleMmarker2" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-z_index = -1
-texture_filter = 1
-position = Vector2(193, 131)
-texture = ExtResource("2_yc0gd")
-
-[node name="SampleMmarker4" type="Sprite2D" parent="."]
-modulate = Color(0.898039, 0.552941, 0, 1)
-z_index = -1
-texture_filter = 1
-position = Vector2(234, 131)
-texture = ExtResource("2_yc0gd")
-
-[node name="SampleMmarker3" type="Sprite2D" parent="."]
+[node name="BlueMarker" type="Sprite2D" parent="."]
 modulate = Color(0.301961, 0.607843, 0.933333, 1)
 z_index = -1
 texture_filter = 1
-position = Vector2(149, 131)
+position = Vector2(140, 141)
+texture = ExtResource("2_yc0gd")
+
+[node name="RedMarker" type="Sprite2D" parent="."]
+modulate = Color(0.909804, 0.231373, 0.231373, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(180, 141)
+texture = ExtResource("2_yc0gd")
+
+[node name="YellowMarker" type="Sprite2D" parent="."]
+modulate = Color(0.976471, 0.760784, 0.168627, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(220, 141)
 texture = ExtResource("2_yc0gd")
 
 [node name="Box" parent="." instance=ExtResource("1_n0ioo")]
