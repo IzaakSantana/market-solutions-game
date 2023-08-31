@@ -6,29 +6,33 @@
 [node name="Main" type="Node"]
 
 [node name="Box" parent="." instance=ExtResource("1_n0ioo")]
-position = Vector2(106, 45)
+position = Vector2(220, 141)
 
 [node name="Box2" parent="." instance=ExtResource("1_n0ioo")]
-position = Vector2(106, 63)
+position = Vector2(180, 141)
 
 [node name="Box3" parent="." instance=ExtResource("1_n0ioo")]
-position = Vector2(106, 81)
+position = Vector2(140, 141)
 
 [node name="Box4" parent="." instance=ExtResource("1_n0ioo")]
 position = Vector2(100, 141)
 
 [node name="GreenMarker" parent="." instance=ExtResource("2_m75eq")]
 modulate = Color(0.117647, 0.737255, 0.45098, 1)
+z_index = -1
 position = Vector2(100, 141)
 
 [node name="BlueMarker" parent="." instance=ExtResource("2_m75eq")]
 modulate = Color(0.301961, 0.607843, 0.933333, 1)
+z_index = -1
 position = Vector2(140, 141)
 
 [node name="RedMarker" parent="." instance=ExtResource("2_m75eq")]
 modulate = Color(0.909804, 0.231373, 0.231373, 1)
+z_index = -1
 position = Vector2(180, 141)
 
 [node name="YellowMarker" parent="." instance=ExtResource("2_m75eq")]
 modulate = Color(0.976471, 0.760784, 0.168627, 1)
+z_index = -1
 position = Vector2(220, 141)

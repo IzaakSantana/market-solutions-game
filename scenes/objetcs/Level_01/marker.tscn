@@ -1,8 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://h2m12s5inyax"]
+[gd_scene load_steps=3 format=3 uid="uid://h2m12s5inyax"]
 
 [ext_resource type="Texture2D" uid="uid://dstmal21y0gny" path="res://assets/sprites/marker.png" id="1_ipxiq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xm0in"]
 
 [node name="Marker" type="Node2D"]
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_ipxiq")
+
+[node name="BoxPosition1" type="Marker2D" parent="."]
+
+[node name="BoxPosition2" type="Marker2D" parent="."]
+position = Vector2(0, -15)
+
+[node name="BoxPosition3" type="Marker2D" parent="."]
+position = Vector2(0, -30)
+
+[node name="BoxPosition4" type="Marker2D" parent="."]
+position = Vector2(0, -45)
+
+[node name="Area1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area1"]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_xm0in")
+
+[node name="Area2" type="Area2D" parent="."]
+position = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2"]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_xm0in")
+
+[node name="Area3" type="Area2D" parent="."]
+position = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area3"]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_xm0in")
+
+[node name="Area4" type="Area2D" parent="."]
+position = Vector2(0, -45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area4"]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_xm0in")
