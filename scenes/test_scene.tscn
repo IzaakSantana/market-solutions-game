@@ -1,13 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://d22evm1g7k6ki"]
+[gd_scene load_steps=4 format=3 uid="uid://b17sd3hyoinn7"]
 
-[ext_resource type="Texture2D" uid="uid://bgokv70rfvg0t" path="res://assets/sprites/box.png" id="1_lvs4s"]
+[ext_resource type="Texture2D" uid="uid://bgokv70rfvg0t" path="res://assets/sprites/box.png" id="1_514on"]
+
+[sub_resource type="GDScript" id="GDScript_xj6i5"]
+script/source = "extends RigidBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpmfq"]
+size = Vector2(16, 16)
 
 [node name="RigidBody2D" type="RigidBody2D"]
+script = SubResource("GDScript_xj6i5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_lvs4s")
+texture = ExtResource("1_514on")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lpmfq")
