@@ -9,6 +9,8 @@
 size = Vector2(16, 16)
 
 [node name="Box" type="RigidBody2D"]
+input_pickable = true
+lock_rotation = true
 script = ExtResource("2_3o6ba")
 
 [node name="Sprite" type="Sprite2D" parent="."]

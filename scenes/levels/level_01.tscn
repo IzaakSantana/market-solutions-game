@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://doasfjrxgkcb7"]
+[gd_scene load_steps=4 format=3 uid="uid://doasfjrxgkcb7"]
 
 [ext_resource type="PackedScene" uid="uid://dqlaha5akt0u1" path="res://scenes/objetcs/Level_01/sample_box.tscn" id="1_n0ioo"]
 [ext_resource type="PackedScene" uid="uid://h2m12s5inyax" path="res://scenes/objetcs/Level_01/marker.tscn" id="2_m75eq"]
+[ext_resource type="PackedScene" uid="uid://3j8t6m122468" path="res://scenes/objetcs/Level_01/physics_floor.tscn" id="3_l1vsm"]
 
 [node name="Main" type="Node"]
 
@@ -15,6 +16,42 @@ position = Vector2(180, 141)
 position = Vector2(140, 141)
 
 [node name="Box4" parent="." instance=ExtResource("1_n0ioo")]
+position = Vector2(100, 125)
+
+[node name="Box5" parent="." instance=ExtResource("1_n0ioo")]
+position = Vector2(100, 109)
+
+[node name="Box6" parent="." instance=ExtResource("1_n0ioo")]
+position = Vector2(100, 93)
+
+[node name="Box7" parent="." instance=ExtResource("1_n0ioo")]
+position = Vector2(140, 125)
+
+[node name="Box8" parent="." instance=ExtResource("1_n0ioo")]
+position = Vector2(140, 109)
+
+[node name="Box9" parent="." instance=ExtResource("1_n0ioo")]
+position = Vector2(140, 93)
+
+[node name="Box10" parent="." instance=ExtResource("1_n0ioo")]
+position = Vector2(180, 125)
+
+[node name="Box11" parent="." instance=ExtResource("1_n0ioo")]
+position = Vector2(180, 109)
+
+[node name="Box12" parent="." instance=ExtResource("1_n0ioo")]
+position = Vector2(180, 93)
+
+[node name="Box13" parent="." instance=ExtResource("1_n0ioo")]
+position = Vector2(220, 125)
+
+[node name="Box14" parent="." instance=ExtResource("1_n0ioo")]
+position = Vector2(220, 109)
+
+[node name="Box15" parent="." instance=ExtResource("1_n0ioo")]
+position = Vector2(220, 93)
+
+[node name="Box16" parent="." instance=ExtResource("1_n0ioo")]
 position = Vector2(100, 141)
 
 [node name="GreenMarker" parent="." instance=ExtResource("2_m75eq")]
@@ -36,3 +73,6 @@ position = Vector2(180, 141)
 modulate = Color(0.976471, 0.760784, 0.168627, 1)
 z_index = -1
 position = Vector2(220, 141)
+
+[node name="PhysicsFloor" parent="." instance=ExtResource("3_l1vsm")]
+position = Vector2(0, 151)
