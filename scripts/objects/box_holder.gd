@@ -1,29 +1,49 @@
-extends Node2D
+extends RigidBody2D
 
 var number_generator = RandomNumberGenerator.new()
 
-@export var weight = number_generator.randi_range(1, 4)
+@export var weight = number_generator.randi_range(3, 10)
 var mouse_in = false
 var being_held = false
+#var previous_position: Vector2
+#var new_position: Vector2
+
 
 func _ready():
-	$Marker.modulate = GlobalVariables.colors.blue
+#	new_position = position
+	$Marker.modulate = GlobalVariables.random_box_color()
+	$Weight.text = str(weight) + " Kg"
+	
+	
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed('left_click') and mouse_in:
+
+
 		if can_hold_box():
+			freeze = true
 			GlobalVariables.box_held = true
 			being_held = true
-		
+
 		if being_held:
 			dragging_cursor()
 			position = get_global_mouse_position()
+			#new_position = get_global_mouse_position()
+#		else:
+#			new_position = position
+
 	if Input.is_action_just_released("left_click"):
+		freeze = false
 		GlobalVariables.box_held = false
 		being_held = false
 		pointing_cursor()
+
+
+#func _integrate_forces(state):
+#	position = new_position
 
 
 func _on_mouse_entered():
@@ -31,19 +51,22 @@ func _on_mouse_entered():
 	pointing_cursor()
 
 
-
 func _on_mouse_exited():
 	mouse_in = false
 	defult_cursor()
 
+
 func defult_cursor():
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
 
 func pointing_cursor():
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	
+	
 func dragging_cursor():
 	Input.set_default_cursor_shape(Input.CURSOR_DRAG)
+
 
 func can_hold_box():
 	return !GlobalVariables.box_held
