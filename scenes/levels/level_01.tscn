@@ -53,6 +53,7 @@ position = Vector2(220, 93)
 
 [node name="Box16" parent="." instance=ExtResource("1_n0ioo")]
 position = Vector2(100, 141)
+weight = 8
 
 [node name="GreenMarker" parent="." instance=ExtResource("2_m75eq")]
 modulate = Color(0.117647, 0.737255, 0.45098, 1)

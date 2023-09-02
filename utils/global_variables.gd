@@ -9,6 +9,49 @@ var colors = {
 	green = Color8(30, 188, 115)
 }
 
+var colors_list: Array
+
+
+func _ready():
+	_create_colors_list()
+	_randomize_box_colors()
+
+
+func random_color():
+	return colors_list.pick_random()
+	
+	
+func _create_colors_list():
+	for color in colors:
+		colors_list.append(color)
+	
+	
 # Level 1
 var box_held = false
 
+var box_setup = {
+	colors = [
+		colors.blue,
+		colors.red, 
+		colors.green,
+		colors.yellow
+	],
+	colors_to_use = []
+}
+
+
+func random_box_color():
+
+	var color = box_setup.colors_to_use.pop_front()
+	
+	return color
+
+
+func _randomize_box_colors():
+	randomize()
+	
+	for color in box_setup.colors:
+		for i in range(4):
+			box_setup.colors_to_use.append(color)
+			
+		box_setup.colors_to_use.shuffle()
