@@ -1,10 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://3j8t6m122468"]
+[gd_scene load_steps=3 format=3 uid="uid://3j8t6m122468"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddrpj"]
-size = Vector2(320, 4)
+size = Vector2(320, 32)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rb5oy"]
+normal = Vector2(1, 0)
 
 [node name="PhysicsFloor" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(160, 0)
+position = Vector2(160, 164)
 shape = SubResource("RectangleShape2D_ddrpj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-2, 91)
+rotation = -0.00105962
+shape = SubResource("WorldBoundaryShape2D_rb5oy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(158, -2)
+rotation = 1.56986
+shape = SubResource("WorldBoundaryShape2D_rb5oy")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(323, 91)
+rotation = 3.14361
+shape = SubResource("WorldBoundaryShape2D_rb5oy")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqlaha5akt0u1"]
 
-[ext_resource type="Script" path="res://scripts/objects/box_holder.gd" id="2_3o6ba"]
+[ext_resource type="Script" path="res://scripts/level_01/objects/box_holder.gd" id="1_qr42y"]
 [ext_resource type="Texture2D" uid="uid://bgokv70rfvg0t" path="res://assets/sprites/box.png" id="2_kvq4s"]
 [ext_resource type="Texture2D" uid="uid://docxe4j7sq2cw" path="res://assets/sprites/box_marker.png" id="3_847lx"]
 [ext_resource type="Texture2D" uid="uid://2vawfmbs6lyc" path="res://assets/sprites/alert.png" id="4_b1ru4"]
@@ -8,10 +8,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4m7v"]
 size = Vector2(16, 16)
 
-[node name="Box" type="RigidBody2D"]
+[node name="Box" type="RigidBody2D" groups=["boxes"]]
 input_pickable = true
 lock_rotation = true
-script = ExtResource("2_3o6ba")
+freeze_mode = 1
+script = ExtResource("1_qr42y")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -40,5 +41,9 @@ texture = ExtResource("4_b1ru4")
 visible = false
 shape = SubResource("RectangleShape2D_k4m7v")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.8, 0.8)
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

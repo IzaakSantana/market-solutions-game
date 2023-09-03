@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://doasfjrxgkcb7"]
+[gd_scene load_steps=6 format=3 uid="uid://doasfjrxgkcb7"]
 
 [ext_resource type="PackedScene" uid="uid://dqlaha5akt0u1" path="res://scenes/objetcs/Level_01/sample_box.tscn" id="1_n0ioo"]
+[ext_resource type="Script" path="res://scripts/level_01/game_logic.gd" id="1_rlwcb"]
 [ext_resource type="PackedScene" uid="uid://h2m12s5inyax" path="res://scenes/objetcs/Level_01/marker.tscn" id="2_m75eq"]
 [ext_resource type="PackedScene" uid="uid://3j8t6m122468" path="res://scenes/objetcs/Level_01/physics_floor.tscn" id="3_l1vsm"]
+[ext_resource type="PackedScene" uid="uid://drxmtd0d6xurm" path="res://scenes/objetcs/Level_01/world_border.tscn" id="4_i4woa"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_rlwcb")
 
 [node name="Box" parent="." instance=ExtResource("1_n0ioo")]
 position = Vector2(220, 141)
@@ -59,21 +62,36 @@ weight = 8
 modulate = Color(0.117647, 0.737255, 0.45098, 1)
 z_index = -1
 position = Vector2(100, 141)
+color = "green"
 
 [node name="BlueMarker" parent="." instance=ExtResource("2_m75eq")]
 modulate = Color(0.301961, 0.607843, 0.933333, 1)
 z_index = -1
 position = Vector2(140, 141)
+color = "blue"
 
 [node name="RedMarker" parent="." instance=ExtResource("2_m75eq")]
 modulate = Color(0.909804, 0.231373, 0.231373, 1)
 z_index = -1
 position = Vector2(180, 141)
+color = "red"
 
 [node name="YellowMarker" parent="." instance=ExtResource("2_m75eq")]
 modulate = Color(0.976471, 0.760784, 0.168627, 1)
 z_index = -1
 position = Vector2(220, 141)
+color = "yellow"
 
 [node name="PhysicsFloor" parent="." instance=ExtResource("3_l1vsm")]
-position = Vector2(0, 151)
+position = Vector2(0, 1)
+metadata/_edit_horizontal_guides_ = [31.0]
+
+[node name="BoxRespawn" type="Marker2D" parent="."]
+position = Vector2(41, 93)
+
+[node name="WorldBorder" parent="." instance=ExtResource("4_i4woa")]
+
+[connection signal="boxes_ordered" from="GreenMarker" to="." method="_on_boxes_ordered"]
+[connection signal="boxes_ordered" from="BlueMarker" to="." method="_on_boxes_ordered"]
+[connection signal="boxes_ordered" from="RedMarker" to="." method="_on_boxes_ordered"]
+[connection signal="boxes_ordered" from="YellowMarker" to="." method="_on_boxes_ordered"]

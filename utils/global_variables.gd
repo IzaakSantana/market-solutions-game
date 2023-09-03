@@ -31,10 +31,10 @@ var box_held = false
 
 var box_setup = {
 	colors = [
-		colors.blue,
-		colors.red, 
-		colors.green,
-		colors.yellow
+		{name = "blue", color = colors.blue},
+		{name = "red" , color = colors.red}, 
+		{name = "green", color = colors.green},
+		{name = "yellow", color =colors.yellow}
 	],
 	colors_to_use = []
 }
@@ -42,9 +42,9 @@ var box_setup = {
 
 func random_box_color():
 
-	var color = box_setup.colors_to_use.pop_front()
+	var color_data = box_setup.colors_to_use.pop_front()
 	
-	return color
+	return color_data
 
 
 func _randomize_box_colors():

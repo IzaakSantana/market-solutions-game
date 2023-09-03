@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/level_01/objects/marker.gd" id="1_mlo6q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xm0in"]
-size = Vector2(32, 128)
+size = Vector2(40, 138)
 
 [node name="Marker" type="Node2D" groups=["markers"]]
 script = ExtResource("1_mlo6q")
@@ -15,7 +15,7 @@ texture = ExtResource("1_ipxiq")
 [node name="Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
-position = Vector2(0, -24)
+position = Vector2(0, -24.5)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_xm0in")
 
