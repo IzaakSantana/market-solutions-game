@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://doasfjrxgkcb7"]
+[gd_scene load_steps=8 format=3 uid="uid://doasfjrxgkcb7"]
 
 [ext_resource type="PackedScene" uid="uid://dqlaha5akt0u1" path="res://scenes/objetcs/Level_01/box.tscn" id="1_n0ioo"]
 [ext_resource type="Script" path="res://scripts/level_01/game_logic.gd" id="1_rlwcb"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://3j8t6m122468" path="res://scenes/objetcs/Level_01/physics_floor.tscn" id="3_l1vsm"]
 [ext_resource type="PackedScene" uid="uid://drxmtd0d6xurm" path="res://scenes/objetcs/Level_01/world_border.tscn" id="4_i4woa"]
 [ext_resource type="Texture2D" uid="uid://dstmal21y0gny" path="res://assets/sprites/marker.png" id="6_nmcg3"]
+[ext_resource type="Texture2D" uid="uid://c2g420ixo58de" path="res://assets/sprites/background.png" id="7_lq6vd"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_rlwcb")
@@ -93,8 +94,14 @@ position = Vector2(41, 93)
 [node name="WorldBorder" parent="." instance=ExtResource("4_i4woa")]
 
 [node name="SpareMarker" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(41, 141)
 texture = ExtResource("6_nmcg3")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("7_lq6vd")
+centered = false
 
 [connection signal="boxes_ordered" from="GreenMarker" to="." method="_on_boxes_ordered"]
 [connection signal="boxes_ordered" from="BlueMarker" to="." method="_on_boxes_ordered"]
