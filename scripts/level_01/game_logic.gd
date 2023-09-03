@@ -6,6 +6,7 @@ var markers = []
 func _ready():
 	boxes = get_tree().get_nodes_in_group("boxes")
 	markers = get_tree().get_nodes_in_group("markers")
+	
 
 
 func _process(delta):
