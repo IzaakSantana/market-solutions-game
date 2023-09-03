@@ -20,8 +20,11 @@ func _ready():
 	color = random_color_data.name
 	$Marker.modulate = random_color_data.color
 	$Weight.text = str(weight) + " Kg"
-	box_respawn_pos = get_node("../BoxRespawn").position
 	mass = weight
+	box_respawn_pos = get_node("../BoxRespawn").position
+	
+	get_parent().game_ended.connect(_on_game_ended)
+	
 
 
 
@@ -90,3 +93,6 @@ func _on_screen_exited():
 	new_pos.y = box_respawn_pos.y
 	change_state = true
 	
+
+func _on_game_ended():
+	input_pickable = false
