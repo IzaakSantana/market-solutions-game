@@ -1,5 +1,7 @@
 extends Node
 
+signal game_ended
+
 var boxes = []
 var markers = []
 
@@ -10,19 +12,20 @@ func _ready():
 
 
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("restart"):
+		GlobalVariables._randomize_box_colors()
+		get_tree().reload_current_scene()
 
 
 func _on_boxes_ordered():
-	print('boxes ordered')
 	if markers.all(check_markers):
-		boxes.any(paint_boxes)
-
-
-func paint_boxes(box):
-	print("painting boxes")
-	box.get_node("Marker").modulate = Color(1, 1, 1)
+		end_game()
 
 
 func check_markers(marker):
 	return marker.has_right_boxes
+
+
+func end_game():
+	game_ended.emit()
+	$GUI.visible = true
