@@ -1,48 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://h2m12s5inyax"]
+[gd_scene load_steps=4 format=3 uid="uid://h2m12s5inyax"]
 
 [ext_resource type="Texture2D" uid="uid://dstmal21y0gny" path="res://assets/sprites/marker.png" id="1_ipxiq"]
+[ext_resource type="Script" path="res://scripts/level_01/objects/marker.gd" id="1_mlo6q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xm0in"]
+size = Vector2(32, 128)
 
-[node name="Marker" type="Node2D"]
+[node name="Marker" type="Node2D" groups=["markers"]]
+script = ExtResource("1_mlo6q")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_ipxiq")
 
-[node name="BoxPosition1" type="Marker2D" parent="."]
+[node name="Area" type="Area2D" parent="."]
 
-[node name="BoxPosition2" type="Marker2D" parent="."]
-position = Vector2(0, -15)
-
-[node name="BoxPosition3" type="Marker2D" parent="."]
-position = Vector2(0, -30)
-
-[node name="BoxPosition4" type="Marker2D" parent="."]
-position = Vector2(0, -45)
-
-[node name="Area1" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, -24)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_xm0in")
 
-[node name="Area2" type="Area2D" parent="."]
-position = Vector2(0, -15)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2"]
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_xm0in")
-
-[node name="Area3" type="Area2D" parent="."]
-position = Vector2(0, -30)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area3"]
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_xm0in")
-
-[node name="Area4" type="Area2D" parent="."]
-position = Vector2(0, -45)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area4"]
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_xm0in")
+[connection signal="body_entered" from="Area" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_body_exited"]
