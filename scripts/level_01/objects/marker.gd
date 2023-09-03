@@ -9,9 +9,9 @@ var check_var = true
 
 
 func _process(delta):
-	if check_var and has_right_boxes:
+	if has_right_boxes:
 		boxes_ordered.emit()
-		check_var = false
+#		check_var = false
 
 
 func _on_body_entered(body):

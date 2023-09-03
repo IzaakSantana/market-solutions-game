@@ -15,6 +15,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("restart"):
 		GlobalVariables._randomize_box_colors()
 		get_tree().reload_current_scene()
+	
+	if not $BackgroundMusic.playing:
+		$BackgroundMusic.play()
 
 
 func _on_boxes_ordered():
@@ -28,4 +31,5 @@ func check_markers(marker):
 
 func end_game():
 	game_ended.emit()
+	$Clapping.play()
 	$GUI.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://doasfjrxgkcb7"]
+[gd_scene load_steps=11 format=3 uid="uid://doasfjrxgkcb7"]
 
 [ext_resource type="PackedScene" uid="uid://dqlaha5akt0u1" path="res://scenes/objetcs/Level_01/box.tscn" id="1_n0ioo"]
 [ext_resource type="Script" path="res://scripts/level_01/game_logic.gd" id="1_rlwcb"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dstmal21y0gny" path="res://assets/sprites/marker.png" id="6_nmcg3"]
 [ext_resource type="Texture2D" uid="uid://c2g420ixo58de" path="res://assets/sprites/background.png" id="7_lq6vd"]
 [ext_resource type="PackedScene" uid="uid://b5126a1oahc80" path="res://scenes/objetcs/Level_01/gui.tscn" id="8_5o41l"]
+[ext_resource type="AudioStream" uid="uid://dr6fdfqpig5x8" path="res://assets/sounds/background_music.wav" id="9_u7eur"]
+[ext_resource type="AudioStream" uid="uid://3nrhq1w6bvfp" path="res://assets/sounds/clapping.mp3" id="10_o6lg6"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_rlwcb")
@@ -106,6 +108,13 @@ centered = false
 
 [node name="GUI" parent="." instance=ExtResource("8_5o41l")]
 visible = false
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_u7eur")
+autoplay = true
+
+[node name="Clapping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_o6lg6")
 
 [connection signal="boxes_ordered" from="GreenMarker" to="." method="_on_boxes_ordered"]
 [connection signal="boxes_ordered" from="BlueMarker" to="." method="_on_boxes_ordered"]

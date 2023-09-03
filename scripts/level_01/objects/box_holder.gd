@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var number_generator = RandomNumberGenerator.new()
 var min_weight = 3
-var max_weight = 4
+var max_weight = 10
 
 var mouse_in = false
 var being_held = false
@@ -12,10 +12,14 @@ var box_respawn_pos: Vector2
 var new_pos: Vector2
 var random_color_data = {}
 
-@export var weight = number_generator.randi_range(min_weight, max_weight)
+var boxes_signal
+
+@export var weight = 0
 @export var color = "white"
 
 func _ready():
+	randomize()
+	weight = number_generator.randi_range(min_weight, max_weight)
 	random_color_data = GlobalVariables.random_box_color()
 	color = random_color_data.name
 	$Marker.modulate = random_color_data.color
@@ -24,6 +28,7 @@ func _ready():
 	box_respawn_pos = get_node("../BoxRespawn").position
 	
 	get_parent().game_ended.connect(_on_game_ended)
+	boxes_signal = get_tree().get_first_node_in_group("markers").boxes_ordered
 	
 
 
@@ -41,7 +46,6 @@ func _process(delta):
 
 		if being_held:
 			dragging_cursor()
-			
 			position = get_global_mouse_position()
 
 	if Input.is_action_just_released("left_click"):
@@ -51,8 +55,11 @@ func _process(delta):
 		GlobalVariables.box_held = false
 		being_held = false
 		
+		$Drop.play()
 		
 		pointing_cursor()
+		
+		boxes_signal.emit()
 
 
 func _integrate_forces(state):

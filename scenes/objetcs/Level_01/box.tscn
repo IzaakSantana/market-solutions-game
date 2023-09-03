@@ -1,12 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqlaha5akt0u1"]
+[gd_scene load_steps=10 format=3 uid="uid://dqlaha5akt0u1"]
 
 [ext_resource type="Script" path="res://scripts/level_01/objects/box_holder.gd" id="1_qr42y"]
 [ext_resource type="Texture2D" uid="uid://bgokv70rfvg0t" path="res://assets/sprites/box.png" id="2_kvq4s"]
 [ext_resource type="Texture2D" uid="uid://docxe4j7sq2cw" path="res://assets/sprites/box_marker.png" id="3_847lx"]
 [ext_resource type="Texture2D" uid="uid://2vawfmbs6lyc" path="res://assets/sprites/alert.png" id="4_b1ru4"]
+[ext_resource type="AudioStream" uid="uid://bagysuqrsxtp6" path="res://assets/sounds/woosh0.mp3" id="6_hfnxm"]
+[ext_resource type="AudioStream" uid="uid://0ai3oswwwe40" path="res://assets/sounds/woosh1.mp3" id="7_5gbtj"]
+[ext_resource type="AudioStream" uid="uid://socdqh0wc4e6" path="res://assets/sounds/woosh2.mp3" id="8_kknhx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4m7v"]
 size = Vector2(16, 16)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w275s"]
+streams_count = 3
+playback_mode = 1
+stream_0/stream = ExtResource("6_hfnxm")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_5gbtj")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_kknhx")
+stream_2/weight = 1.0
 
 [node name="Box" type="RigidBody2D" groups=["boxes"]]
 input_pickable = true
@@ -38,11 +51,13 @@ scale = Vector2(0.34375, 0.34375)
 texture = ExtResource("4_b1ru4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_k4m7v")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(0.8, 0.8)
+
+[node name="Drop" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_w275s")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
