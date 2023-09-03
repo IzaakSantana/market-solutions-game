@@ -6,9 +6,6 @@ var markers = []
 func _ready():
 	boxes = get_tree().get_nodes_in_group("boxes")
 	markers = get_tree().get_nodes_in_group("markers")
-	
-	for marker in markers:
-		marker.boxes_ordered.connect(_on_boxes_ordered)
 
 
 func _process(delta):
