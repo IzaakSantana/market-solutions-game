@@ -1,16 +1,14 @@
 extends RigidBody2D
 
 var number_generator = RandomNumberGenerator.new()
-
-@export var weight = number_generator.randi_range(3, 10)
+var min_weight = 3
+var max_weight = 4
+@export var weight = number_generator.randi_range(min_weight, max_weight)
 var mouse_in = false
 var being_held = false
-#var previous_position: Vector2
-#var new_position: Vector2
 
 
 func _ready():
-#	new_position = position
 	$Marker.modulate = GlobalVariables.random_box_color()
 	$Weight.text = str(weight) + " Kg"
 	
@@ -22,7 +20,6 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed('left_click') and mouse_in:
 
-
 		if can_hold_box():
 			freeze = true
 			GlobalVariables.box_held = true
@@ -31,19 +28,12 @@ func _process(delta):
 		if being_held:
 			dragging_cursor()
 			position = get_global_mouse_position()
-			#new_position = get_global_mouse_position()
-#		else:
-#			new_position = position
 
 	if Input.is_action_just_released("left_click"):
 		freeze = false
 		GlobalVariables.box_held = false
 		being_held = false
 		pointing_cursor()
-
-
-#func _integrate_forces(state):
-#	position = new_position
 
 
 func _on_mouse_entered():
