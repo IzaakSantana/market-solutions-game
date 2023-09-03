@@ -24,7 +24,7 @@ func _on_body_entered(body):
 	
 	if boxes.size() == 4:
 		
-		has_right_boxes = boxes.all(check_boxes)
+		has_right_boxes = check_boxes()
 
 
 
@@ -35,7 +35,25 @@ func _on_body_exited(body):
 		has_right_boxes = false
 
 
-func check_boxes(box):
+func check_boxes():
+	var color_matches = boxes.all(check_color)
+	var weight_ordered = is_weight_ordered()
 	
+	return color_matches and weight_ordered
+
+
+func check_color(box):
 	return box.color == color
 
+
+func is_weight_ordered():
+	var previous_weight = boxes[0].weight
+	var count = 0
+	
+	for box in boxes:
+		if box.weight > previous_weight:
+			count += 1
+
+		previous_weight = box.weight
+	
+	return not count > 0 # If count > 0 returns false
