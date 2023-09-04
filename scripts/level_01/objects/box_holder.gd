@@ -59,7 +59,7 @@ func _process(delta):
 		
 		pointing_cursor()
 		
-		boxes_signal.emit()
+#		boxes_signal.emit()
 
 
 func _integrate_forces(state):

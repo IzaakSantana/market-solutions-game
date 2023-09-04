@@ -22,10 +22,12 @@ func _process(delta):
 
 func _on_boxes_ordered():
 	if markers.all(check_markers):
+		print("game ended")
 		end_game()
 
 
 func check_markers(marker):
+	print("checking markers")
 	return marker.has_right_boxes
 
 

@@ -9,9 +9,10 @@ var check_var = true
 
 
 func _process(delta):
-	if has_right_boxes:
+	if check_var and has_right_boxes:
+		print("emiting signal")
 		boxes_ordered.emit()
-#		check_var = false
+		check_var = false
 
 
 func _on_body_entered(body):
@@ -21,6 +22,7 @@ func _on_body_entered(body):
 		body.new_pos.x = global_position.x
 		body.new_pos.y = body.global_position.y
 		body.change_state = true
+		print(body.color + " box added to " + name)
 	
 	if boxes.size() == 4:
 		
@@ -29,6 +31,7 @@ func _on_body_entered(body):
 
 
 func _on_body_exited(body):
+	print("box removed from " + name)
 	boxes.erase(body)
 	
 	if has_right_boxes:
@@ -36,17 +39,23 @@ func _on_body_exited(body):
 
 
 func check_boxes():
+	print("checking boxes")
 	var color_matches = boxes.all(check_color)
 	var weight_ordered = is_weight_ordered()
 	
+	if color_matches and weight_ordered:
+		print("all match")
+		
 	return color_matches and weight_ordered
 
 
 func check_color(box):
+	print("checking color")
 	return box.color == color
 
 
 func is_weight_ordered():
+	print("checking weight")
 	var previous_weight = boxes[0].weight
 	var count = 0
 	
